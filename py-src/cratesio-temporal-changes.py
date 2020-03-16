@@ -78,5 +78,5 @@ with open("resolved_graph.csv", "w") as graph_file:
                 if dep['name'] in  version_registry and 'kind' in dep and (dep['kind'] == 'normal' or dep['kind'] ==  'builds'):
                     valid_vers = [ver for ver in version_registry[dep['name']] if RUST.is_match(dep['req'].encode('ascii'), ver.encode('ascii'))]
                     if len(valid_vers) > 0:
-                        row =  "{},{},{},{}\n".format(rev['name'],rev['version'],dep['name'],valid_vers)
+                        row =  "{},{},{},{}\n".format(rev['name'],rev['vers'],dep['name'],valid_vers)
                         graph_file.write(row)
